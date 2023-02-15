@@ -21,6 +21,19 @@ public class MyGdxGame extends Game implements ScreenManager {
 	@Override
 	public void render() {
 		currentScreen.render(Gdx.graphics.getDeltaTime());
+		
+		if (currentScreen.isDone()) {
+			currentScreen.dispose();
+
+			if (currentScreen instanceof StartScreen) {
+				setScreen(new GamePlayScreen(this));
+
+			} else {
+				if (currentScreen instanceof GamePlayScreen) {
+					setScreen(new MainMenu(this));
+				} 
+			}
+		}
 	}
 
 	@Override
