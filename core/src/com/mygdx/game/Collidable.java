@@ -11,7 +11,7 @@ import com.badlogic.gdx.Gdx;
  *
  * @author lyz
  */
-public class Collidable <C> extends Entity implements iCollidable <C>{
+public class Collidable <C> extends Entity implements iCollidable <C>{//movingEntity implements iCollidable <C>{ // Remove accordingly when movingEntity is implemented
     private C cobj; // Generic collidable object
     private float w; // Width
     private float h; // Height
@@ -21,9 +21,12 @@ public class Collidable <C> extends Entity implements iCollidable <C>{
         // Blank Constructor
     }
     
-    public Collidable(float posx, float posy, C newc, float w, float h)
+    public Collidable(float posx, float posy, float s, C newc, float w, float h)
     {
         this.cobj = newc;
+        // Typecasts for Netbeans to not give errors
+        //super(posx, posy, s); // After movingEntity is implemented use this
+        ((Entity)this.cobj).setS(s);
         ((Entity)this.cobj).setX(posx);
         ((Entity)this.cobj).setY(posy);
         this.w = w;
