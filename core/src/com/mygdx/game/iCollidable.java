@@ -9,8 +9,5 @@ package com.mygdx.game;
  * @author lyz
  */
 public interface iCollidable <C>{
-    
-    public boolean handleCollision(C obj);
-    
-    public void reactToCollision();
+    public boolean collided(C obj);
 }
