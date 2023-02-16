@@ -40,6 +40,16 @@ public class Collidable <C> extends Entity implements iCollidable <C>{
         return h;
     }
     
+    public void setW(float w)
+    {
+        this.w = w;
+    }
+    
+    public void setH(float h)
+    {
+        this.h = h;
+    }
+    
     // Returns true if object is colliding and false if not colliding
     public boolean collided(C c)
     {
